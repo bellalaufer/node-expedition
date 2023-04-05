@@ -8,7 +8,6 @@ const crew = fs.readFileSync(crewFile, 'utf-8').split('\n').map(line => line.tri
 const equipment = fs.readFileSync(equipmentFile, 'utf-8').split('\n').map(line => line.trim());
 const rockets = fs.readFileSync(rocketsFile, 'utf-8').split('\n').map(line => line.trim());
 
-console.log(rockets)
 
 
 
@@ -75,7 +74,7 @@ function getRightRocket() {
   const result = rockets
     .slice(1)
     .map(el => el.split(','))
-    .sort(([rocketNameA, typeA, rangeA], [rocketNameB, typeB, rangeB]) => Number(rangeB) - parseInt(rangeA));
+    .sort(([rocketNameA, typeA, rangeA], [rocketNameB, typeB, rangeB]) => parseInt(rangeB) - parseInt(rangeA));
   return result[0].toString()
 }
 
